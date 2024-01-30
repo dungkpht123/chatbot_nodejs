@@ -17,7 +17,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Listen on port 4021
-const port = 4021;
-app.listen(port, function () {
-  console.log('Bubble node app running on port ' + port);
+const PORT = process.env.PORT || 4021;
+
+// const port = 4021;
+app.listen(PORT, function () {
+  console.log('Bubble node app running on port ' + PORT);
 });
