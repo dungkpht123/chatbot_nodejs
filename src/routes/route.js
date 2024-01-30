@@ -3,7 +3,7 @@ const route = express.Router();
 
 const mainController = require("../controller/mainController");
 
-route.get("/",mainController.index)
+route.get("/chatgpt",mainController.index)
 // route.get("/about",mainController.about)
 
 

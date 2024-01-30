@@ -3,7 +3,7 @@ const express = require('express');
 const route = require('./routes/route');
 const app = express();
 const path = require('path');
-
+require('dotenv').config();
 // Static Files
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/css', express.static(path.join(__dirname, '../public/css')));
