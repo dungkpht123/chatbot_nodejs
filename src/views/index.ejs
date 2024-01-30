@@ -44,8 +44,9 @@
     const chatInput = document.querySelector(".chat-input textarea");
     const sendChatBtn = document.querySelector(".chat-input span");
     const chatbox = document.querySelector(".chatbox");
+    
     let userMessage;
-    const API_KEY = "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";
+    const API_KEY = "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";
     const  createChatLi = (message,className) =>{
         // create a chat li element with pased mess
         const chatLi = document.createElement("li");
@@ -54,11 +55,9 @@
         chatLi.innerHTML = chatContent;
         return chatLi;
     }
-
     const generateResponse = (incomingChatLi) => {
         const API_URL = "https://api.openai.com/v1/chat/completions";
         const messageElement = incomingChatLi.querySelector("p");
-        
         // Fetch the content of the "dung.txt" file
         fetch("./text/dung.txt")
             .then(response => response.text())
@@ -70,7 +69,7 @@
                         "Authorization": `Bearer ${API_KEY}`
                     },
                     body: JSON.stringify({
-                        model: "gpt-3.5-turbo",
+                        model: "gpt-3.5-turbo-16k",
                         messages: [
                             { role: "system", content: systemMessage },  // Use the content of the file as the system message
                             { role: "user", content: userMessage }
@@ -110,22 +109,6 @@
             chatInput.value = "";
         }, 600);
     };
-    
-    sendChatBtn.addEventListener("click",handleChat);
-    document.addEventListener("DOMContentLoaded", function() {
-        // Find the close button element
-        var closeButton = document.querySelector('.close_x');
-        <!-- console.log(closeButton); -->
-        // Find the chatbox element
-        var chatbox = document.querySelector('.chatbox');
-        // Add a click event listener to the close button
-        if (closeButton && chatbox) {
-            closeButton.addEventListener('click', function() {
-                // Toggle the visibility of the chatbox by adding/removing the 'hidden' class
-                chatbox.classList.toggle('hidden');
-                console.log("đã vào");
-            });
-        }
-    });
+    sendChatBtn.addEventListener("click",handleChat)    
 </script>
 </html>
