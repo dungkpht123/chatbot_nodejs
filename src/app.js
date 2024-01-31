@@ -17,7 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Listen on port 4021
-const PORT = process.env.PORT || 4021;
+const PORT = process.env.PORT || 4020;
 
 // const port = 4021;
 app.listen(PORT, function () {
